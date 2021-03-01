@@ -37,3 +37,29 @@ Here is the actual class distribution of the wine dataset:
 And this shows how data points are clustered by the k-means algorithm:
 
 ![Image of Wine Dataset Clusters](images/wineClusters.png)
+
+While the clusters are not perfect at modeling the distributions of each category of wine, they provide pretty good estimates of the distributions within each class. In a given cluster, continuous random variables can be generated to form new data points. The graph below shows the original data and clusters alongside 10 artificially generated data points.
+
+![Image of Wine Dataset Clusters and Generated Data](images/wineGeneratedData.png)
+
+As can be seen, the artifically generated datapoints would be easy to pass off as legitimate if they were unlabeled.
+
+Let's now examine the car dataset. Here is the actual class distribution within the dataset:
+
+![Image of Car Dataset Classes](images/carActual.png)
+
+Because this data is categorical and has limited possible values, the selected two graphing features cannot be used to distinguish all of the different classes. Despite this, the k-means algorithm will make additional distinctions between data points in forming clusters as pictured below:
+
+![Image of Car Dataset Clusters](images/carClusters.png)
+
+While the generated clusters certainly appear to be distinct, k-means made distinctions that were not present in the original dataset. Despite the imperfect clustering results, discrete random variables can be generated within clusters to create new data points. The graph below shows the original data and clusters alongside 10 artificially generated data points.
+
+![Image of Car Dataset Clusters and Generated Data](images/carGeneratedData.png)
+
+Once again, the artificially generated datapoints appear to be legitimate.
+
+One interesting observation with the car dataset in particular is that every time the k-means algorithm is run, slightly different clusters appear to be generated. This is because my implementation of the k-means algorithm selects initial cluster centroid locations randomly, and with the small amount of variance in the car dataset's categorical values, this tends to generate a locally optimal clustering with cluster locations depending on where the initial cluster centroids are placed.
+
+## Conclusions
+
+Overall, I have found that the k-means algorithm's data modeling performance is highly dependent on the dataset used. I have shown an example where k-means data modeling performs very well, and another example where the algorithm has some issues. These issues could likely be mitigated by further transforming categorical datasets so that the most class-distinct features are seperated by greater distance, or perhaps by generating k-means clusters with a metric other than euclidean distance like was used in my implementation. While I believe that these results have shown overall success, I conclude by noting that there will always be room for worthwhile improvement which I have outlined above.
