@@ -53,6 +53,8 @@ else:
   
   for i in range(k):
     plt.scatter(X[Y_pred == i, feature0], X[Y_pred == i, feature1], label=('cluster ' + str(i)))
+    # Comment the above line and uncomment the below line to plot the dataset's actual categories rather than the determined clusters
+    #plt.scatter(X[Y == i + np.amin(Y), feature0], X[Y == i + np.amin(Y), feature1], label=('category ' + str(i)))
 
   plt.scatter(centroids[:, feature0], centroids[:, feature1], marker='X', label='cluster centroid')
   
